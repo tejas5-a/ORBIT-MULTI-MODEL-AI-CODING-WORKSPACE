@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-container-lowest": "#ffffff",
+          "surface-container-high": "#ece6f3",
+          "on-surface": "#1c1a24",
+          "primary": "#5726d2",
+          "error-container": "#ffdad6",
+          "error": "#ba1a1a",
+          "on-tertiary-fixed-variant": "#723600",
+          "outline": "#7a7487",
+          "on-secondary-container": "#fefcff",
+          "secondary-container": "#256eec",
+          "secondary-fixed": "#d9e2ff",
+          "on-secondary-fixed": "#001945",
+          "inverse-primary": "#ccbdff",
+          "on-primary-fixed-variant": "#4d13c8",
+          "on-error-container": "#93000a",
+          "on-error": "#ffffff",
+          "tertiary-container": "#a55100",
+          "on-primary": "#ffffff",
+          "on-surface-variant": "#494455",
+          "secondary": "#0055c7",
+          "on-secondary": "#ffffff",
+          "on-tertiary-container": "#ffe3d3",
+          "primary-fixed": "#e7deff",
+          "surface-tint": "#663ae0",
+          "secondary-fixed-dim": "#b0c6ff",
+          "primary-fixed-dim": "#ccbdff",
+          "on-secondary-fixed-variant": "#00419c",
+          "on-primary-container": "#ede5ff",
+          "tertiary-fixed-dim": "#ffb787",
+          "inverse-surface": "#322f39",
+          "tertiary": "#813e00",
+          "on-primary-fixed": "#1f0060",
+          "surface-container": "#f2ebf9",
+          "surface-bright": "#fdf7ff",
+          "surface": "#fdf7ff",
+          "surface-variant": "#e6e0ee",
+          "background": "#fdf7ff",
+          "surface-dim": "#ded8e5",
+          "tertiary-fixed": "#ffdcc7",
+          "surface-container-highest": "#e6e0ee",
+          "primary-container": "#7047eb",
+          "surface-container-low": "#f8f1ff",
+          "on-background": "#1c1a24",
+          "inverse-on-surface": "#f5eefc",
+          "outline-variant": "#cac3d8",
+          "on-tertiary": "#ffffff",
+          "on-tertiary-fixed": "#311300"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-xl": "24px",
+          "space-md": "12px",
+          "margin": "16px",
+          "space-sm": "8px",
+          "gutter": "12px",
+          "space-xs": "4px",
+          "space-lg": "16px"
+        },
+        "fontFamily": {
+          "body-sm": [
+            "Inter"
+          ],
+          "headline-md": [
+            "Geist"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Geist"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Geist"
+          ],
+          "label-md": [
+            "JetBrains Mono"
+          ],
+          "headline-lg": [
+            "Geist"
+          ],
+          "label-sm": [
+            "JetBrains Mono"
+          ]
+        },
+        "fontSize": {
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "18px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-xl": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-sm": [
+            "10px",
+            {
+              "lineHeight": "14px",
+              "fontWeight": "500"
+            }
+          ]
+        }
+      },
+    },
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-[220px] bg-surface-container-low z-50 flex flex-col py-space-xl px-space-md"><div class="flex items-center gap-space-sm mb-space-xl px-space-xs"><img alt="ORBIT Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsP2YqWaNMaQ-TEZ5sybf5AcjDHT5CRACQEyFMfgfMOvD-Jwdulg8p8YAl6qJ8EBEAEDezwgjpkxUpGbFD5Pd7-HMnFQx2R7EdPrxbOCCEQQMYBBBKaBmTGtd2Who9aqCCFG0fmkS_3ovF3IuODfBEbUMio68r8tT_wGIqrmcF3SY2Zfy-fnYxFIdZeJBwRUjKgAe-yCzdddda0ckiY_O0BCHgPn4BR9H_yVn4wqihm8OcwP8y4mLrPw"/><span class="font-headline-md text-on-surface">ORBIT</span></div><div class="mb-space-lg"><button class="w-full flex items-center justify-center gap-space-sm bg-primary text-on-primary py-space-sm px-space-md rounded-xl font-headline-sm hover:bg-surface-tint hover:text-on-primary transition-colors"><span class="material-symbols-outlined text-[18px]">add</span>New Task</button></div><nav class="flex-1 flex flex-col gap-space-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm rounded-xl"><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span>Dashboard</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="ai-workspace" href="#"><span class="material-symbols-outlined text-[20px]">smart_toy</span>AI Workspace</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="agent-workspace" href="#"><span class="material-symbols-outlined text-[20px]">psychology</span>Agent Workspace</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="projects" href="#"><span class="material-symbols-outlined text-[20px]">folder</span>Projects</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="code-editor" href="#"><span class="material-symbols-outlined text-[20px]">code</span>Code Editor</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="terminal" href="#"><span class="material-symbols-outlined text-[20px]">terminal</span>Terminal</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="model-hub" href="#"><span class="material-symbols-outlined text-[20px]">hub</span>Model Hub</a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-headline-sm rounded-xl" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span>Settings</a></nav><div class="mt-auto pt-space-md border-t border-surface-variant/40 flex items-center gap-space-sm px-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-green-500"></span><span class="text-body-sm text-on-surface-variant font-label-md">Connected to Cluster</span></div></aside><div class="pl-[220px]"><header class="fixed top-0 left-[220px] right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-lg"><span class="font-headline-md text-on-surface">Multi-Model Coding Workspace</span><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl border border-surface-variant/40"><span class="text-body-sm text-on-surface-variant">Project:</span><select class="bg-transparent text-on-surface font-headline-sm focus:outline-none cursor-pointer"><option>orbit-core-v2</option><option>neural-router</option></select></div><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl border border-surface-variant/40"><span class="text-body-sm text-on-surface-variant">Model:</span><select class="bg-transparent text-on-surface font-headline-sm focus:outline-none cursor-pointer"><option>Claude 3.5 Sonnet</option><option>GPT-4o</option><option>DeepSeek R1</option></select></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-on-surface-variant text-[18px]">search</span><input class="bg-surface-container-low text-on-surface pl-10 pr-space-md py-space-xs rounded-xl text-body-md border border-surface-variant/40 focus:outline-none focus:border-primary w-64" placeholder="Type a command or search..." type="text"/></div><button class="p-space-xs text-on-surface-variant hover:text-on-surface rounded-full hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full pb-20">
+<div class="grid grid-cols-12 min-h-[calc(100vh-4rem)]">
+<!-- Left Category Sidebar -->
+<div class="col-span-3 bg-surface-container-low p-space-xl flex flex-col gap-space-sm border-r border-surface-variant/20">
+<div class="px-space-md py-space-xs mb-space-sm">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Preferences</span>
+</div>
+<button class="setting-tab flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-headline-sm bg-primary-container text-on-primary-container transition-all" id="btn-general" onclick="switchTab('general')">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">tune</span>
+        General
+      </button>
+<button class="setting-tab flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-headline-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" id="btn-appearance" onclick="switchTab('appearance')">
+<span class="material-symbols-outlined text-[20px]">palette</span>
+        Appearance
+      </button>
+<button class="setting-tab flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-headline-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" id="btn-editor" onclick="switchTab('editor')">
+<span class="material-symbols-outlined text-[20px]">code</span>
+        Editor &amp; Keybindings
+      </button>
+<button class="setting-tab flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-headline-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" id="btn-api" onclick="switchTab('api')">
+<span class="material-symbols-outlined text-[20px]">key</span>
+        API Keys &amp; Providers
+      </button>
+<button class="setting-tab flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-headline-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" id="btn-security" onclick="switchTab('security')">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+        Security &amp; Cluster
+      </button>
+<button class="setting-tab flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-headline-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" id="btn-advanced" onclick="switchTab('advanced')">
+<span class="material-symbols-outlined text-[20px]">developer_mode</span>
+        Advanced
+      </button>
+<div class="mt-auto pt-space-xl border-t border-surface-variant/20 flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-space-md">
+<span class="text-body-sm text-on-surface-variant">ORBIT Desktop</span>
+<span class="text-label-sm bg-surface-container-high px-2 py-0.5 rounded text-on-surface">v2.4.0-stable</span>
+</div>
+<div class="px-space-md text-body-sm text-on-surface-variant/70">
+          Build 8942 · Electron 31.2
+        </div>
+</div>
+</div>
+<!-- Right Main Content Area -->
+<div class="col-span-9 p-space-xl bg-surface overflow-y-auto">
+<!-- GENERAL TAB -->
+<div class="settings-content space-y-space-xl max-w-4xl" id="tab-general">
+<div>
+<h2 class="font-headline-lg text-on-surface">General Settings</h2>
+<p class="text-body-md text-on-surface-variant mt-space-xs">Manage workspace behaviors, startup options, and telemetry reporting.</p>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-space-xl space-y-space-xl shadow-sm">
+<div class="flex items-center justify-between">
+<div class="space-y-space-xs max-w-xl">
+<h3 class="font-headline-md text-on-surface">Start on System Boot</h3>
+<p class="text-body-sm text-on-surface-variant">Automatically launch ORBIT in the background when your operating system starts up.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between border-t border-surface-variant/20 pt-space-xl">
+<div class="space-y-space-xs max-w-xl">
+<h3 class="font-headline-md text-on-surface">Anonymous Telemetry &amp; Crash Reports</h3>
+<p class="text-body-sm text-on-surface-variant">Help us improve model routing and latency by sharing anonymized diagnostic traces and performance metrics.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between border-t border-surface-variant/20 pt-space-xl">
+<div class="space-y-space-xs max-w-xl">
+<h3 class="font-headline-md text-on-surface">Auto-Update Cluster Models</h3>
+<p class="text-body-sm text-on-surface-variant">Silently pull minor weight updates and fine-tuned patches for locally cached models.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between border-t border-surface-variant/20 pt-space-xl">
+<div class="space-y-space-xs max-w-xl">
+<h3 class="font-headline-md text-on-surface">Default Workspace Directory</h3>
+<p class="text-body-sm text-on-surface-variant">Local path where cloned repositories and active AI contexts are persisted.</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<input class="bg-surface text-on-surface px-space-md py-space-xs rounded-xl text-body-sm border border-surface-variant/40 w-72 focus:outline-none font-label-md" readonly="" type="text" value="/Users/developer/orbit-workspace"/>
+<button class="bg-surface-container-high text-on-surface hover:bg-surface-variant px-space-md py-space-xs rounded-xl font-headline-sm text-body-sm transition-colors">Browse</button>
+</div>
+</div>
+</div>
+</div>
+<!-- APPEARANCE TAB -->
+<div class="settings-content hidden space-y-space-xl max-w-4xl" id="tab-appearance">
+<div>
+<h2 class="font-headline-lg text-on-surface">Appearance &amp; Theme</h2>
+<p class="text-body-md text-on-surface-variant mt-space-xs">Customize the UI density, color tint, and font rendering style.</p>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-space-xl space-y-space-xl shadow-sm">
+<div>
+<h3 class="font-headline-md text-on-surface mb-space-md">Color Mode</h3>
+<div class="grid grid-cols-3 gap-space-md">
+<div class="border-2 border-primary bg-surface p-space-md rounded-xl cursor-pointer flex flex-col items-center gap-space-sm text-center shadow-sm">
+<span class="material-symbols-outlined text-[28px] text-primary">light_mode</span>
+<span class="font-headline-sm text-on-surface">Light Corporate</span>
+</div>
+<div class="border-2 border-surface-variant/40 bg-surface-container p-space-md rounded-xl cursor-pointer flex flex-col items-center gap-space-sm text-center hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-[28px] text-on-surface-variant">dark_mode</span>
+<span class="font-headline-sm text-on-surface">Deep Obsidian</span>
+</div>
+<div class="border-2 border-surface-variant/40 bg-surface-container p-space-md rounded-xl cursor-pointer flex flex-col items-center gap-space-sm text-center hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-[28px] text-on-surface-variant">contrast</span>
+<span class="font-headline-sm text-on-surface">System Auto</span>
+</div>
+</div>
+</div>
+<div class="border-t border-surface-variant/20 pt-space-xl">
+<h3 class="font-headline-md text-on-surface mb-space-md">Accent Color</h3>
+<div class="flex items-center gap-space-md">
+<button class="w-8 h-8 rounded-full bg-[#5726d2] ring-4 ring-primary/30 flex items-center justify-center text-white"><span class="material-symbols-outlined text-[16px]">check</span></button>
+<button class="w-8 h-8 rounded-full bg-[#0055c7] hover:scale-105 transition-transform"></button>
+<button class="w-8 h-8 rounded-full bg-[#0d9488] hover:scale-105 transition-transform"></button>
+<button class="w-8 h-8 rounded-full bg-[#7c3aed] hover:scale-105 transition-transform"></button>
+<button class="w-8 h-8 rounded-full bg-[#db2777] hover:scale-105 transition-transform"></button>
+</div>
+</div>
+<div class="border-t border-surface-variant/20 pt-space-xl flex items-center justify-between">
+<div class="space-y-space-xs max-w-xl">
+<h3 class="font-headline-md text-on-surface">Interface Density</h3>
+<p class="text-body-sm text-on-surface-variant">Choose between spacious comfortable layouts or high-density engineering views.</p>
+</div>
+<select class="bg-surface text-on-surface px-space-md py-space-xs rounded-xl text-body-sm border border-surface-variant/40 font-headline-sm focus:outline-none cursor-pointer">
+<option>Compact (High Density)</option>
+<option>Comfortable (Default)</option>
+<option>Spacious</option>
+</select>
+</div>
+</div>
+</div>
+<!-- EDITOR TAB -->
+<div class="settings-content hidden space-y-space-xl max-w-4xl" id="tab-editor">
+<div>
+<h2 class="font-headline-lg text-on-surface">Editor &amp; Keybindings</h2>
+<p class="text-body-md text-on-surface-variant mt-space-xs">Configure text editing preferences, tab widths, and shortcut profiles.</p>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-space-xl space-y-space-xl shadow-sm">
+<div class="grid grid-cols-2 gap-space-xl">
+<div class="space-y-space-xs">
+<label class="font-headline-sm text-on-surface">Tab Size</label>
+<select class="w-full bg-surface text-on-surface px-space-md py-space-xs rounded-xl text-body-sm border border-surface-variant/40 font-headline-sm focus:outline-none">
+<option>2 Spaces</option>
+<option selected="">4 Spaces</option>
+<option>Tab (8 Spaces)</option>
+</select>
+</div>
+<div class="space-y-space-xs">
+<label class="font-headline-sm text-on-surface">Keymap Profile</label>
+<select class="w-full bg-surface text-on-surface px-space-md py-space-xs rounded-xl text-body-sm border border-surface-variant/40 font-headline-sm focus:outline-none">
+<option>VS Code / Standard</option>
+<option>Vim / Neovim</option>
+<option>Emacs</option>
+<option>Sublime Text</option>
+</select>
+</div>
+</div>
+<div class="border-t border-surface-variant/20 pt-space-xl space-y-space-md">
+<h3 class="font-headline-md text-on-surface">Custom Keybindings</h3>
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between p-space-md bg-surface rounded-xl border border-surface-variant/20">
+<span class="text-body-sm text-on-surface">Trigger AI Inline Complete</span>
+<span class="font-label-md bg-surface-container px-space-md py-1 rounded text-primary">Cmd + Shift + I</span>
+</div>
+<div class="flex items-center justify-between p-space-md bg-surface rounded-xl border border-surface-variant/20">
+<span class="text-body-sm text-on-surface">Open Command Palette</span>
+<span class="font-label-md bg-surface-container px-space-md py-1 rounded text-primary">Cmd + K</span>
+</div>
+<div class="flex items-center justify-between p-space-md bg-surface rounded-xl border border-surface-variant/20">
+<span class="text-body-sm text-on-surface">Switch Multi-Model Split View</span>
+<span class="font-label-md bg-surface-container px-space-md py-1 rounded text-primary">Cmd + Option + S</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- API KEYS TAB -->
+<div class="settings-content hidden space-y-space-xl max-w-4xl" id="tab-api">
+<div>
+<h2 class="font-headline-lg text-on-surface">API Keys &amp; Model Providers</h2>
+<p class="text-body-md text-on-surface-variant mt-space-xs">Connect external foundation model endpoints and custom API credentials.</p>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-space-xl space-y-space-xl shadow-sm">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-headline-md">A</div>
+<div>
+<h4 class="font-headline-md text-on-surface">Anthropic Claude API</h4>
+<p class="text-body-sm text-on-surface-variant">Active for Claude 3.5 Sonnet &amp; Opus routing</p>
+</div>
+</div>
+<span class="text-label-md bg-green-500/10 text-green-600 px-space-md py-1 rounded-full font-label-md">Connected</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<input class="flex-1 bg-surface text-on-surface px-space-md py-space-xs rounded-xl text-body-sm border border-surface-variant/40 focus:outline-none font-label-md" type="password" value="sk-ant-api03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"/>
+<button class="bg-surface-container-high text-on-surface hover:bg-surface-variant px-space-md py-space-xs rounded-xl font-headline-sm text-body-sm transition-colors">Reveal</button>
+<button class="bg-primary text-on-primary hover:bg-surface-tint px-space-md py-space-xs rounded-xl font-headline-sm text-body-sm transition-colors">Update</button>
+</div>
+</div>
+<div class="border-t border-surface-variant/20 pt-space-xl space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/10 flex items-center justify-center text-secondary font-headline-md">O</div>
+<div>
+<h4 class="font-headline-md text-on-surface">OpenAI Platform</h4>
+<p class="text-body-sm text-on-surface-variant">Active for GPT-4o and embedding services</p>
+</div>
+</div>
+<span class="text-label-md bg-green-500/10 text-green-600 px-space-md py-1 rounded-full font-label-md">Connected</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<input class="flex-1 bg-surface text-on-surface px-space-md py-space-xs rounded-xl text-body-sm border border-surface-variant/40 focus:outline-none font-label-md" type="password" value="sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"/>
+<button class="bg-surface-container-high text-on-surface hover:bg-surface-variant px-space-md py-space-xs rounded-xl font-headline-sm text-body-sm transition-colors">Reveal</button>
+<button class="bg-primary text-on-primary hover:bg-surface-tint px-space-md py-space-xs rounded-xl font-headline-sm text-body-sm transition-colors">Update</button>
+</div>
+</div>
+<div class="border-t border-surface-variant/20 pt-space-xl flex justify-end">
+<button class="flex items-center gap-space-sm bg-surface-container-high text-on-surface hover:bg-surface-variant px-space-lg py-space-sm rounded-xl font-headline-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+              Add Custom Provider Endpoint
+            </button>
+</div>
+</div>
+</div>
+<!-- SECURITY TAB -->
+<div class="settings-content hidden space-y-space-xl max-w-4xl" id="tab-security">
+<div>
+<h2 class="font-headline-lg text-on-surface">Security &amp; Cluster Connection</h2>
+<p class="text-body-md text-on-surface-variant mt-space-xs">Manage TLS certificates, private GPU cluster routing, and sandboxing.</p>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-space-xl space-y-space-xl shadow-sm">
+<div class="flex items-center justify-between">
+<div class="space-y-space-xs max-w-xl">
+<h3 class="font-headline-md text-on-surface">Strict Sandbox Isolation</h3>
+<p class="text-body-sm text-on-surface-variant">Run all generated terminal scripts and code tests inside isolated Docker containers.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="border-t border-surface-variant/20 pt-space-xl space-y-space-md">
+<h3 class="font-headline-md text-on-surface">Private Cluster Gateway Endpoint</h3>
+<div class="flex items-center gap-space-sm">
+<input class="flex-1 bg-surface text-on-surface px-space-md py-space-xs rounded-xl text-body-sm border border-surface-variant/40 focus:outline-none font-label-md" type="text" value="grpc://cluster-us-east.orbit-internal.net:9443"/>
+<button class="bg-surface-container-high text-on-surface hover:bg-surface-variant px-space-md py-space-xs rounded-xl font-headline-sm text-body-sm transition-colors">Test Connection</button>
+</div>
+</div>
+<div class="border-t border-surface-variant/20 pt-space-xl space-y-space-md">
+<h3 class="font-headline-md text-on-surface">mTLS Client Certificate</h3>
+<div class="flex items-center justify-between p-space-md bg-surface rounded-xl border border-surface-variant/20">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+<div>
+<span class="text-body-sm font-headline-sm text-on-surface block">orbit-cluster-prod-cert.pem</span>
+<span class="text-label-sm text-on-surface-variant">Expires in 244 days · Issued by ORBIT CA</span>
+</div>
+</div>
+<button class="text-body-sm text-primary font-headline-sm hover:underline">Replace Cert</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ADVANCED TAB -->
+<div class="settings-content hidden space-y-space-xl max-w-4xl" id="tab-advanced">
+<div>
+<h2 class="font-headline-lg text-on-surface">Advanced Developer Settings</h2>
+<p class="text-body-md text-on-surface-variant mt-space-xs">Low-level environment flags, cache management, and debugging tools.</p>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-space-xl space-y-space-xl shadow-sm">
+<div class="flex items-center justify-between">
+<div class="space-y-space-xs max-w-xl">
+<h3 class="font-headline-md text-on-surface">Verbose Console Logging</h3>
+<p class="text-body-sm text-on-surface-variant">Dump raw LLM payload exchanges and IPC events to developer tools console.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="border-t border-surface-variant/20 pt-space-xl flex items-center justify-between">
+<div class="space-y-space-xs max-w-xl">
+<h3 class="font-headline-md text-on-surface">Local Vector DB Cache</h3>
+<p class="text-body-sm text-on-surface-variant">Current index size: 1.42 GB across 14 indexed codebases.</p>
+</div>
+<button class="bg-surface-container-high text-error hover:bg-error-container hover:text-on-error-container px-space-md py-space-xs rounded-xl font-headline-sm text-body-sm transition-colors">Clear Index Cache</button>
+</div>
+<div class="border-t border-surface-variant/20 pt-space-xl flex items-center justify-between">
+<div class="space-y-space-xs max-w-xl">
+<h3 class="font-headline-md text-on-surface">Factory Reset Settings</h3>
+<p class="text-body-sm text-on-surface-variant">Restore all application settings, shortcuts, and preferences to default state.</p>
+</div>
+<button class="bg-error text-on-error hover:opacity-90 px-space-md py-space-xs rounded-xl font-headline-sm text-body-sm transition-opacity">Reset All Settings</button>
+</div>
+</div>
+</div>
+<!-- Floating Save Bar -->
+<div class="mt-space-xl flex items-center justify-end gap-space-md pt-space-md border-t border-surface-variant/20">
+<button class="px-space-lg py-space-sm rounded-xl font-headline-sm text-on-surface-variant hover:bg-surface-container-high transition-colors">Cancel</button>
+<button class="bg-primary text-on-primary hover:bg-surface-tint px-space-xl py-space-sm rounded-xl font-headline-sm transition-colors shadow-sm" onclick="showSaveToast()">Save Changes</button>
+</div>
+</div>
+</div>
+<!-- Toast notification -->
+<div class="fixed bottom-6 right-6 bg-surface-container-high text-on-surface px-space-xl py-space-md rounded-xl shadow-xl flex items-center gap-space-md translate-y-24 opacity-0 transition-all duration-300 z-50 border border-surface-variant/40" id="save-toast">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-headline-sm">Preferences successfully saved</span>
+</div>
+<script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.settings-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById('tab-' + tabId).classList.remove('hidden');
+
+      document.querySelectorAll('.setting-tab').forEach(btn => {
+        btn.className = "setting-tab flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-headline-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all";
+      });
+      const activeBtn = document.getElementById('btn-' + tabId);
+      activeBtn.className = "setting-tab flex items-center gap-space-md px-space-md py-space-sm rounded-xl font-headline-sm bg-primary-container text-on-primary-container transition-all";
+    }
+
+    function showSaveToast() {
+      const toast = document.getElementById('save-toast');
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3000);
+    }
+  </script>
+</div></main></div></body></html>

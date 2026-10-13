@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-container-lowest": "#ffffff",
+          "surface-container-high": "#ece6f3",
+          "on-surface": "#1c1a24",
+          "primary": "#5726d2",
+          "error-container": "#ffdad6",
+          "error": "#ba1a1a",
+          "on-tertiary-fixed-variant": "#723600",
+          "outline": "#7a7487",
+          "on-secondary-container": "#fefcff",
+          "secondary-container": "#256eec",
+          "secondary-fixed": "#d9e2ff",
+          "on-secondary-fixed": "#001945",
+          "inverse-primary": "#ccbdff",
+          "on-primary-fixed-variant": "#4d13c8",
+          "on-error-container": "#93000a",
+          "on-error": "#ffffff",
+          "tertiary-container": "#a55100",
+          "on-primary": "#ffffff",
+          "on-surface-variant": "#494455",
+          "secondary": "#0055c7",
+          "on-secondary": "#ffffff",
+          "on-tertiary-container": "#ffe3d3",
+          "primary-fixed": "#e7deff",
+          "surface-tint": "#663ae0",
+          "secondary-fixed-dim": "#b0c6ff",
+          "primary-fixed-dim": "#ccbdff",
+          "on-secondary-fixed-variant": "#00419c",
+          "on-primary-container": "#ede5ff",
+          "tertiary-fixed-dim": "#ffb787",
+          "inverse-surface": "#322f39",
+          "tertiary": "#813e00",
+          "on-primary-fixed": "#1f0060",
+          "surface-container": "#f2ebf9",
+          "surface-bright": "#fdf7ff",
+          "surface": "#fdf7ff",
+          "surface-variant": "#e6e0ee",
+          "background": "#fdf7ff",
+          "surface-dim": "#ded8e5",
+          "tertiary-fixed": "#ffdcc7",
+          "surface-container-highest": "#e6e0ee",
+          "primary-container": "#7047eb",
+          "surface-container-low": "#f8f1ff",
+          "on-background": "#1c1a24",
+          "inverse-on-surface": "#f5eefc",
+          "outline-variant": "#cac3d8",
+          "on-tertiary": "#ffffff",
+          "on-tertiary-fixed": "#311300"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-xl": "24px",
+          "space-md": "12px",
+          "margin": "16px",
+          "space-sm": "8px",
+          "gutter": "12px",
+          "space-xs": "4px",
+          "space-lg": "16px"
+        },
+        "fontFamily": {
+          "body-sm": [
+            "Inter"
+          ],
+          "headline-md": [
+            "Geist"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Geist"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Geist"
+          ],
+          "label-md": [
+            "JetBrains Mono"
+          ],
+          "headline-lg": [
+            "Geist"
+          ],
+          "label-sm": [
+            "JetBrains Mono"
+          ]
+        },
+        "fontSize": {
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "18px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-xl": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-sm": [
+            "10px",
+            {
+              "lineHeight": "14px",
+              "fontWeight": "500"
+            }
+          ]
+        }
+      },
+    },
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-[220px] bg-surface-container-low z-50 flex flex-col py-space-xl px-space-md"><div class="flex items-center gap-space-sm mb-space-xl px-space-xs"><img alt="ORBIT Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsP2YqWaNMaQ-TEZ5sybf5AcjDHT5CRACQEyFMfgfMOvD-Jwdulg8p8YAl6qJ8EBEAEDezwgjpkxUpGbFD5Pd7-HMnFQx2R7EdPrxbOCCEQQMYBBBKaBmTGtd2Who9aqCCFG0fmkS_3ovF3IuODfBEbUMio68r8tT_wGIqrmcF3SY2Zfy-fnYxFIdZeJBwRUjKgAe-yCzdddda0ckiY_O0BCHgPn4BR9H_yVn4wqihm8OcwP8y4mLrPw"/><span class="font-headline-md text-on-surface">ORBIT</span></div><div class="mb-space-lg"><button class="w-full flex items-center justify-center gap-space-sm bg-primary text-on-primary py-space-sm px-space-md rounded-xl font-headline-sm hover:bg-surface-tint hover:text-on-primary transition-colors"><span class="material-symbols-outlined text-[18px]">add</span>New Task</button></div><nav class="flex-1 flex flex-col gap-space-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm rounded-xl"><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span>Dashboard</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="ai-workspace" href="#"><span class="material-symbols-outlined text-[20px]">smart_toy</span>AI Workspace</a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-headline-sm rounded-xl" data-path="agent-workspace" href="#"><span class="material-symbols-outlined text-[20px]">psychology</span>Agent Workspace</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="projects" href="#"><span class="material-symbols-outlined text-[20px]">folder</span>Projects</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="code-editor" href="#"><span class="material-symbols-outlined text-[20px]">code</span>Code Editor</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="terminal" href="#"><span class="material-symbols-outlined text-[20px]">terminal</span>Terminal</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="model-hub" href="#"><span class="material-symbols-outlined text-[20px]">hub</span>Model Hub</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span>Settings</a></nav><div class="mt-auto pt-space-md border-t border-surface-variant/40 flex items-center gap-space-sm px-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-green-500"></span><span class="text-body-sm text-on-surface-variant font-label-md">Connected to Cluster</span></div></aside><div class="pl-[220px]"><header class="fixed top-0 left-[220px] right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-lg"><span class="font-headline-md text-on-surface">Multi-Model Coding Workspace</span><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl border border-surface-variant/40"><span class="text-body-sm text-on-surface-variant">Project:</span><select class="bg-transparent text-on-surface font-headline-sm focus:outline-none cursor-pointer"><option>orbit-core-v2</option><option>neural-router</option></select></div><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl border border-surface-variant/40"><span class="text-body-sm text-on-surface-variant">Model:</span><select class="bg-transparent text-on-surface font-headline-sm focus:outline-none cursor-pointer"><option>Claude 3.5 Sonnet</option><option>GPT-4o</option><option>DeepSeek R1</option></select></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-on-surface-variant text-[18px]">search</span><input class="bg-surface-container-low text-on-surface pl-10 pr-space-md py-space-xs rounded-xl text-body-md border border-surface-variant/40 focus:outline-none focus:border-primary w-64" placeholder="Type a command or search..." type="text"/></div><button class="p-space-xs text-on-surface-variant hover:text-on-surface rounded-full hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full p-space-xl gap-space-xl bg-surface min-h-[calc(100vh-64px)]">
+<div class="flex items-center justify-between bg-surface-container-low p-space-lg rounded-xl shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-lg text-on-surface">Refactor authentication middleware to support OAuth2 PKCE</span>
+<span class="px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Running • Step 3 of 7
+          </span>
+</div>
+<span class="text-body-sm text-on-surface-variant">Autonomous Agent ID: ag_77f902ac • Started 4m ago • Model: Claude 3.5 Sonnet</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-surface-container-high text-on-surface font-headline-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">pause</span>
+        Pause Agent
+      </button>
+<button class="flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-error text-on-error font-headline-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">stop</span>
+        Abort
+      </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter items-start">
+<div class="col-span-4 flex flex-col gap-space-xl">
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col gap-space-md shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-on-surface">Implementation Plan</span>
+<span class="font-label-md text-on-surface-variant">3/7 Complete</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container-lowest text-on-surface">
+<span class="material-symbols-outlined text-green-600 text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-sm line-through text-on-surface-variant">Analyze existing auth middleware structure</span>
+</div>
+<div class="flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container-lowest text-on-surface">
+<span class="material-symbols-outlined text-green-600 text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-sm line-through text-on-surface-variant">Design PKCE challenge/verifier schema</span>
+</div>
+<div class="flex items-center gap-space-md p-space-sm rounded-xl bg-primary-container text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span>
+<span class="text-body-sm font-headline-sm">Update token exchange endpoint handler</span>
+</div>
+<div class="flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+<span class="text-body-sm">Implement S256 code_verifier hashing</span>
+</div>
+<div class="flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+<span class="text-body-sm">Add automated test suite for PKCE flows</span>
+</div>
+<div class="flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+<span class="text-body-sm">Run security audit &amp; vulnerability scan</span>
+</div>
+<div class="flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">radio_button_unchecked</span>
+<span class="text-body-sm">Generate final PR summary</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col gap-space-md shadow-sm">
+<span class="font-headline-md text-on-surface">Selected Context Files</span>
+<div class="flex flex-col gap-space-xs font-label-md">
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest text-on-surface">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">description</span>
+<span>src/auth/middleware.ts</span>
+</div>
+<span class="text-on-surface-variant">Modified</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest text-on-surface">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">description</span>
+<span>src/auth/types.ts</span>
+</div>
+<span class="text-on-surface-variant">Modified</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-lowest text-on-surface">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">description</span>
+<span>src/config/oauth.ts</span>
+</div>
+<span class="text-on-surface-variant">Reference</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-5 flex flex-col gap-space-xl">
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col gap-space-md shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-md text-on-surface">Proposed File Diff</span>
+<span class="font-label-md text-primary bg-primary-fixed px-space-xs py-0.5 rounded">src/auth/middleware.ts</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-xl bg-green-600 text-on-primary font-headline-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">check</span> Accept
+            </button>
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-xl bg-surface-container-high text-on-surface font-headline-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px]">close</span> Reject
+            </button>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl font-label-md text-body-sm overflow-x-auto text-on-surface space-y-1">
+<div class="text-on-surface-variant">// Existing token validation logic</div>
+<div class="bg-red-500/10 text-red-700 px-space-xs rounded">- async function validateToken(token: string) {</div>
+<div class="bg-red-500/10 text-red-700 px-space-xs rounded">-   return jwt.verify(token, process.env.JWT_SECRET);</div>
+<div class="bg-red-500/10 text-red-700 px-space-xs rounded">- }</div>
+<div class="text-on-surface-variant">// Updated with PKCE verification</div>
+<div class="bg-green-500/10 text-green-700 px-space-xs rounded">+ async function validateTokenWithPKCE(token: string, codeVerifier?: string) {</div>
+<div class="bg-green-500/10 text-green-700 px-space-xs rounded">+   const payload = jwt.verify(token, process.env.JWT_SECRET);</div>
+<div class="bg-green-500/10 text-green-700 px-space-xs rounded">+   if (payload.codeChallenge &amp;&amp; !codeVerifier) throw new Error('PKCE required');</div>
+<div class="bg-green-500/10 text-green-700 px-space-xs rounded">+   return verifyPKCEChallenge(codeVerifier, payload.codeChallenge);</div>
+<div class="bg-green-500/10 text-green-700 px-space-xs rounded">+ }</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col gap-space-md shadow-sm">
+<div class="flex items-center gap-space-sm text-amber-800">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+<span class="font-headline-md text-on-surface">Approval Gate Required</span>
+</div>
+<p class="text-body-sm text-on-surface-variant">The agent is requesting permission to run database migrations to add PKCE challenge columns to the OAuth token sessions table.</p>
+<div class="flex items-center gap-space-md pt-space-xs">
+<button class="flex-1 flex items-center justify-center gap-space-sm bg-primary text-on-primary py-space-sm px-space-md rounded-xl font-headline-sm hover:bg-surface-tint transition-colors">
+<span class="material-symbols-outlined text-[18px]">verified</span> Approve &amp; Continue
+          </button>
+<button class="flex-1 flex items-center justify-center gap-space-sm bg-surface-container-high text-on-surface py-space-sm px-space-md rounded-xl font-headline-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">block</span> Deny Request
+          </button>
+</div>
+</div>
+</div>
+<div class="col-span-3 flex flex-col gap-space-xl">
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col gap-space-md shadow-sm h-full">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-on-surface">Live Agent Stream</span>
+<span class="flex items-center gap-space-xs text-xs text-green-600 font-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600 animate-ping"></span>
+            Streaming
+          </span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl font-label-md text-body-sm text-on-surface flex flex-col gap-space-xs h-[420px] overflow-y-auto">
+<div class="text-on-surface-variant">[10:42:01] Initializing sandbox environment...</div>
+<div class="text-on-surface-variant">[10:42:03] Parsing TypeScript abstract syntax tree...</div>
+<div class="text-primary">[10:42:05] Found target function: validateToken</div>
+<div class="text-on-surface-variant">[10:42:08] Generating S256 code challenge verification logic</div>
+<div class="text-on-surface-variant">[10:42:12] Writing test fixtures for auth edge cases</div>
+<div class="text-amber-800">[10:42:15] HALT: Database migration required for new schema fields. Awaiting user approval...</div>
+<div class="text-on-surface-variant opacity-50">[10:42:16] Waiting at security gate...</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

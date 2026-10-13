@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-container-lowest": "#ffffff",
+          "surface-container-high": "#ece6f3",
+          "on-surface": "#1c1a24",
+          "primary": "#5726d2",
+          "error-container": "#ffdad6",
+          "error": "#ba1a1a",
+          "on-tertiary-fixed-variant": "#723600",
+          "outline": "#7a7487",
+          "on-secondary-container": "#fefcff",
+          "secondary-container": "#256eec",
+          "secondary-fixed": "#d9e2ff",
+          "on-secondary-fixed": "#001945",
+          "inverse-primary": "#ccbdff",
+          "on-primary-fixed-variant": "#4d13c8",
+          "on-error-container": "#93000a",
+          "on-error": "#ffffff",
+          "tertiary-container": "#a55100",
+          "on-primary": "#ffffff",
+          "on-surface-variant": "#494455",
+          "secondary": "#0055c7",
+          "on-secondary": "#ffffff",
+          "on-tertiary-container": "#ffe3d3",
+          "primary-fixed": "#e7deff",
+          "surface-tint": "#663ae0",
+          "secondary-fixed-dim": "#b0c6ff",
+          "primary-fixed-dim": "#ccbdff",
+          "on-secondary-fixed-variant": "#00419c",
+          "on-primary-container": "#ede5ff",
+          "tertiary-fixed-dim": "#ffb787",
+          "inverse-surface": "#322f39",
+          "tertiary": "#813e00",
+          "on-primary-fixed": "#1f0060",
+          "surface-container": "#f2ebf9",
+          "surface-bright": "#fdf7ff",
+          "surface": "#fdf7ff",
+          "surface-variant": "#e6e0ee",
+          "background": "#fdf7ff",
+          "surface-dim": "#ded8e5",
+          "tertiary-fixed": "#ffdcc7",
+          "surface-container-highest": "#e6e0ee",
+          "primary-container": "#7047eb",
+          "surface-container-low": "#f8f1ff",
+          "on-background": "#1c1a24",
+          "inverse-on-surface": "#f5eefc",
+          "outline-variant": "#cac3d8",
+          "on-tertiary": "#ffffff",
+          "on-tertiary-fixed": "#311300"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-xl": "24px",
+          "space-md": "12px",
+          "margin": "16px",
+          "space-sm": "8px",
+          "gutter": "12px",
+          "space-xs": "4px",
+          "space-lg": "16px"
+        },
+        "fontFamily": {
+          "body-sm": [
+            "Inter"
+          ],
+          "headline-md": [
+            "Geist"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Geist"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Geist"
+          ],
+          "label-md": [
+            "JetBrains Mono"
+          ],
+          "headline-lg": [
+            "Geist"
+          ],
+          "label-sm": [
+            "JetBrains Mono"
+          ]
+        },
+        "fontSize": {
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "18px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-xl": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-sm": [
+            "10px",
+            {
+              "lineHeight": "14px",
+              "fontWeight": "500"
+            }
+          ]
+        }
+      },
+    },
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-[220px] bg-surface-container-low z-50 flex flex-col py-space-xl px-space-md"><div class="flex items-center gap-space-sm mb-space-xl px-space-xs"><img alt="ORBIT Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsP2YqWaNMaQ-TEZ5sybf5AcjDHT5CRACQEyFMfgfMOvD-Jwdulg8p8YAl6qJ8EBEAEDezwgjpkxUpGbFD5Pd7-HMnFQx2R7EdPrxbOCCEQQMYBBBKaBmTGtd2Who9aqCCFG0fmkS_3ovF3IuODfBEbUMio68r8tT_wGIqrmcF3SY2Zfy-fnYxFIdZeJBwRUjKgAe-yCzdddda0ckiY_O0BCHgPn4BR9H_yVn4wqihm8OcwP8y4mLrPw"/><span class="font-headline-md text-on-surface">ORBIT</span></div><div class="mb-space-lg"><button class="w-full flex items-center justify-center gap-space-sm bg-primary text-on-primary py-space-sm px-space-md rounded-xl font-headline-sm hover:bg-surface-tint hover:text-on-primary transition-colors"><span class="material-symbols-outlined text-[18px]">add</span>New Task</button></div><nav class="flex-1 flex flex-col gap-space-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm rounded-xl"><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span>Dashboard</a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-headline-sm rounded-xl" data-path="ai-workspace" href="#"><span class="material-symbols-outlined text-[20px]">smart_toy</span>AI Workspace</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="agent-workspace" href="#"><span class="material-symbols-outlined text-[20px]">psychology</span>Agent Workspace</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="projects" href="#"><span class="material-symbols-outlined text-[20px]">folder</span>Projects</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="code-editor" href="#"><span class="material-symbols-outlined text-[20px]">code</span>Code Editor</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="terminal" href="#"><span class="material-symbols-outlined text-[20px]">terminal</span>Terminal</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="model-hub" href="#"><span class="material-symbols-outlined text-[20px]">hub</span>Model Hub</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span>Settings</a></nav><div class="mt-auto pt-space-md border-t border-surface-variant/40 flex items-center gap-space-sm px-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-green-500"></span><span class="text-body-sm text-on-surface-variant font-label-md">Connected to Cluster</span></div></aside><div class="pl-[220px]"><header class="fixed top-0 left-[220px] right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-lg"><span class="font-headline-md text-on-surface">Multi-Model Coding Workspace</span><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl border border-surface-variant/40"><span class="text-body-sm text-on-surface-variant">Project:</span><select class="bg-transparent text-on-surface font-headline-sm focus:outline-none cursor-pointer"><option>orbit-core-v2</option><option>neural-router</option></select></div><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl border border-surface-variant/40"><span class="text-body-sm text-on-surface-variant">Model:</span><select class="bg-transparent text-on-surface font-headline-sm focus:outline-none cursor-pointer"><option>Claude 3.5 Sonnet</option><option>GPT-4o</option><option>DeepSeek R1</option></select></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-on-surface-variant text-[18px]">search</span><input class="bg-surface-container-low text-on-surface pl-10 pr-space-md py-space-xs rounded-xl text-body-md border border-surface-variant/40 focus:outline-none focus:border-primary w-64" placeholder="Type a command or search..." type="text"/></div><button class="p-space-xs text-on-surface-variant hover:text-on-surface rounded-full hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full min-h-[calc(100vh-4rem)] bg-surface text-on-surface">
+<div class="flex flex-1 w-full h-[calc(100vh-4rem)] overflow-hidden">
+<!-- Conversation History Sidebar -->
+<aside class="w-72 bg-surface-container-low flex flex-col border-r border-surface-variant/20">
+<div class="p-space-lg flex items-center justify-between border-b border-surface-variant/20">
+<span class="font-headline-sm text-on-surface flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">history</span>
+          Chat Sessions
+        </span>
+<button class="p-space-xs rounded-lg hover:bg-surface-container-high text-on-surface-variant transition-colors" title="New Chat">
+<span class="material-symbols-outlined text-[18px]">add_comment</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-space-md space-y-space-xs">
+<div class="text-label-sm text-on-surface-variant px-space-md py-space-xs uppercase tracking-wider">Today</div>
+<a class="flex flex-col gap-space-xs p-space-md rounded-xl bg-primary-container text-on-primary-container transition-all" href="#">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm truncate">React Server Components Auth</span>
+<span class="text-label-sm opacity-80">10m ago</span>
+</div>
+<span class="text-body-sm opacity-90 truncate">Refactoring JWT middleware for App Router</span>
+</a>
+<a class="flex flex-col gap-space-xs p-space-md rounded-xl hover:bg-surface-container-high text-on-surface-variant transition-all" href="#">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-on-surface truncate">Vector DB Indexing Pipeline</span>
+<span class="text-label-sm">2h ago</span>
+</div>
+<span class="text-body-sm truncate">Optimizing HNSW parameters in Qdrant</span>
+</a>
+<div class="text-label-sm text-on-surface-variant px-space-md pt-space-md pb-space-xs uppercase tracking-wider">Previous 7 Days</div>
+<a class="flex flex-col gap-space-xs p-space-md rounded-xl hover:bg-surface-container-high text-on-surface-variant transition-all" href="#">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-on-surface truncate">PostgreSQL Query Tuning</span>
+<span class="text-label-sm">3d ago</span>
+</div>
+<span class="text-body-sm truncate">Analyzing execution plans for heavy joins</span>
+</a>
+<a class="flex flex-col gap-space-xs p-space-md rounded-xl hover:bg-surface-container-high text-on-surface-variant transition-all" href="#">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-on-surface truncate">Docker Multi-stage Build</span>
+<span class="text-label-sm">5d ago</span>
+</div>
+<span class="text-body-sm truncate">Reducing image size for Go microservice</span>
+</a>
+</div>
+<div class="p-space-md border-t border-surface-variant/20 bg-surface-container/50 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-label-md">AI</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-on-surface text-xs">Context Token Usage</span>
+<span class="text-label-sm text-on-surface-variant">32.4k / 128k active</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+</div>
+</aside>
+<!-- Main Chat & Workspace Area -->
+<section class="flex-1 flex flex-col bg-surface relative min-w-0">
+<!-- Top Action Toolbar -->
+<div class="h-14 border-b border-surface-variant/20 px-space-xl flex items-center justify-between bg-surface/50 backdrop-blur-md z-10">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-sm bg-surface-container px-space-md py-space-xs rounded-xl">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="font-headline-sm text-on-surface text-xs">Claude 3.5 Sonnet</span>
+<span class="text-label-sm text-on-surface-variant border-l border-surface-variant/40 pl-space-sm">Active Engine</span>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface text-body-sm transition-colors border border-surface-variant/20" id="toggle-comparison">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+            Split View (Compare)
+          </button>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="p-space-xs rounded-xl hover:bg-surface-container text-on-surface-variant transition-colors" title="Export Chat">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-space-xs rounded-xl hover:bg-surface-container text-on-surface-variant transition-colors" title="Clear History">
+<span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+</button>
+</div>
+</div>
+<!-- Chat Stream & Split Container -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Primary Stream -->
+<div class="flex-1 flex flex-col overflow-y-auto p-space-xl space-y-space-xl" id="primary-stream">
+<!-- User Prompt Message -->
+<div class="flex items-start gap-space-md max-w-3xl ml-auto flex-row-reverse">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center flex-shrink-0 font-headline-sm text-xs">U</div>
+<div class="flex flex-col items-end gap-space-xs">
+<div class="bg-primary text-on-primary p-space-md rounded-2xl rounded-tr-none text-body-md shadow-sm">
+                Can you write a high-performance JWT verification middleware in Go using standard library and github.com/golang-jwt/jwt/v5, handling custom claims and context injection cleanly?
+              </div>
+<span class="text-label-sm text-on-surface-variant">10:42 AM</span>
+</div>
+</div>
+<!-- AI Response Message -->
+<div class="flex items-start gap-space-md max-w-4xl mr-auto">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+</div>
+<div class="flex flex-col gap-space-md w-full">
+<div class="bg-surface-container-low p-space-lg rounded-2xl rounded-tl-none border border-surface-variant/30 shadow-sm text-body-md text-on-surface space-y-space-md">
+<p>Here is a production-ready JWT middleware implemented in Go. It securely parses incoming bearer tokens, validates claims against expected issuers, and injects custom claims into the request context with type-safe accessors.</p>
+<!-- Code Block -->
+<div class="rounded-xl overflow-hidden bg-surface-container-lowest border border-surface-variant/40">
+<div class="flex items-center justify-between px-space-md py-space-xs bg-surface-container border-b border-surface-variant/30">
+<div class="flex items-center gap-space-sm">
+<span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
+<span class="text-label-md text-on-surface-variant ml-space-xs font-label-md">middleware/jwt.go</span>
+</div>
+<button class="flex items-center gap-space-xs text-label-md text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+                      Copy
+                    </button>
+</div>
+<pre class="p-space-md text-body-sm font-label-md overflow-x-auto text-on-surface bg-surface-container-lowest/50 leading-relaxed"><code><span class="text-primary">package</span> middleware
+
+<span class="text-primary">import</span> (
+    <span class="text-tertiary">"context"</span>
+    <span class="text-tertiary">"net/http"</span>
+    <span class="text-tertiary">"strings"</span>
+    
+    <span class="text-tertiary">"github.com/golang-jwt/jwt/v5"</span>
+)
+
+<span class="text-primary">type</span> contextKey <span class="text-primary">string</span>
+<span class="text-primary">const</span> ClaimsKey contextKey = <span class="text-tertiary">"jwt_claims"</span>
+
+<span class="text-primary">func</span> JWTMiddleware(secret []<span class="text-primary">byte</span>) func(http.Handler) http.Handler {
+    <span class="text-primary">return func</span>(next http.Handler) http.Handler {
+        <span class="text-primary">return</span> http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+            authHeader := r.Header.Get(<span class="text-tertiary">"Authorization"</span>)
+            <span class="text-primary">if</span> !strings.HasPrefix(authHeader, <span class="text-tertiary">"Bearer "</span>) {
+                http.Error(w, <span class="text-tertiary">"Unauthorized"</span>, http.StatusUnauthorized)
+                <span class="text-primary">return</span>
+            }
+            
+            tokenStr := strings.TrimPrefix(authHeader, <span class="text-tertiary">"Bearer "</span>)
+            token, err := jwt.Parse(tokenStr, func(token *jwt.Token) (<span class="text-primary">interface</span>{}, <span class="text-primary">error</span>) {
+                <span class="text-primary">return</span> secret, <span class="text-primary">nil</span>
+            })
+            
+            <span class="text-primary">if</span> err != <span class="text-primary">nil</span> || !token.Valid {
+                http.Error(w, <span class="text-tertiary">"Invalid Token"</span>, http.StatusUnauthorized)
+                <span class="text-primary">return</span>
+            }
+            
+            ctx := context.WithValue(r.Context(), ClaimsKey, token.Claims)
+            next.ServeHTTP(w, r.WithContext(ctx))
+        })
+    }
+}</code></pre>
+</div>
+<p>You can retrieve these claims safely in downstream handlers using type assertion:</p>
+<div class="bg-surface-container px-space-md py-space-xs rounded-xl font-label-md text-xs text-on-surface-variant">
+                  claims := r.Context().Value(ClaimsKey).(jwt.MapClaims)
+                </div>
+</div>
+<!-- Response Action Controls -->
+<div class="flex items-center gap-space-sm text-on-surface-variant">
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-xl bg-surface-container-low hover:bg-surface-container hover:text-on-surface transition-colors text-body-sm border border-surface-variant/20">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+                  Copy all
+                </button>
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-xl bg-surface-container-low hover:bg-surface-container hover:text-on-surface transition-colors text-body-sm border border-surface-variant/20">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+                  Regenerate
+                </button>
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-xl bg-surface-container-low hover:bg-surface-container hover:text-on-surface transition-colors text-body-sm border border-surface-variant/20">
+<span class="material-symbols-outlined text-[16px]">playlist_add</span>
+                  Insert to Editor
+                </button>
+<span class="text-label-sm ml-auto opacity-70">Completed in 412ms · 340 tokens</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Side-by-Side Model Comparison Panel (Hidden by default) -->
+<div class="w-1/2 flex flex-col border-l border-surface-variant/20 bg-surface-container-low/30 hidden" id="comparison-panel">
+<div class="h-12 border-b border-surface-variant/20 px-space-lg flex items-center justify-between bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">psychology</span>
+<select class="bg-transparent font-headline-sm text-on-surface text-xs focus:outline-none cursor-pointer">
+<option>GPT-4o (OpenAI)</option>
+<option>Gemini 1.5 Pro (Google)</option>
+<option>DeepSeek R1 (Open)</option>
+</select>
+</div>
+<button class="p-space-xs rounded-lg hover:bg-surface-container text-on-surface-variant" id="close-comparison">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-space-xl space-y-space-xl">
+<!-- User Prompt Copy -->
+<div class="flex items-start gap-space-md max-w-3xl ml-auto flex-row-reverse opacity-90">
+<div class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center flex-shrink-0 text-xs">U</div>
+<div class="bg-secondary text-on-secondary p-space-md rounded-2xl rounded-tr-none text-body-sm">
+                Can you write a high-performance JWT verification middleware in Go...
+              </div>
+</div>
+<!-- Alternative AI Response -->
+<div class="flex items-start gap-space-md max-w-4xl mr-auto">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+</div>
+<div class="flex flex-col gap-space-md w-full">
+<div class="bg-surface-container p-space-md rounded-2xl rounded-tl-none border border-surface-variant/30 text-body-sm text-on-surface space-y-space-md">
+<p>Here is an alternative implementation using `github.com/golang-jwt/jwt/v5` optimized for zero-allocation parsing where possible:</p>
+<div class="rounded-xl overflow-hidden bg-surface-container-lowest border border-surface-variant/40">
+<pre class="p-space-md text-body-sm font-label-md overflow-x-auto text-on-surface leading-relaxed"><code><span class="text-secondary">func</span> AlternativeMiddleware(next http.Handler) http.Handler {
+    <span class="text-secondary">return</span> http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        <span class="text-comment">// Alternative validation path</span>
+        next.ServeHTTP(w, r)
+    })
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Prompt Composer Area -->
+<div class="p-space-lg bg-surface border-t border-surface-variant/20">
+<div class="max-w-4xl mx-auto flex flex-col bg-surface-container-low rounded-2xl border border-surface-variant/40 focus-within:border-primary transition-colors shadow-sm overflow-hidden">
+<textarea class="w-full bg-transparent p-space-md text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none resize-none text-body-md" placeholder="Ask the model or press '/' for commands..." rows="3"></textarea>
+<div class="flex items-center justify-between px-space-md py-space-sm bg-surface-container/55 border-t border-surface-variant/20">
+<div class="flex items-center gap-space-xs">
+<button class="p-space-xs rounded-xl hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-space-xs text-body-sm" title="Attach Files">
+<span class="material-symbols-outlined text-[18px]">attach_file</span>
+<span class="text-xs">Attach</span>
+</button>
+<button class="p-space-xs rounded-xl hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-space-xs text-body-sm" title="Add Code Context">
+<span class="material-symbols-outlined text-[18px]">code_blocks</span>
+<span class="text-xs">Context</span>
+</button>
+<button class="p-space-xs rounded-xl hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-space-xs text-body-sm" title="Web Search">
+<span class="material-symbols-outlined text-[18px]">globe</span>
+<span class="text-xs">Search</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-label-sm text-on-surface-variant">Shift + Enter for newline</span>
+<button class="bg-primary hover:bg-surface-tint text-on-primary px-space-lg py-space-xs rounded-xl font-headline-sm flex items-center gap-space-xs transition-colors shadow-sm">
+<span>Send</span>
+<span class="material-symbols-outlined text-[16px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+    const toggleBtn = document.getElementById('toggle-comparison');
+    const closeBtn = document.getElementById('close-comparison');
+    const panel = document.getElementById('comparison-panel');
+
+    toggleBtn.addEventListener('click', () => {
+      panel.classList.toggle('hidden');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      panel.classList.add('hidden');
+    });
+  </script>
+</div></main></div></body></html>

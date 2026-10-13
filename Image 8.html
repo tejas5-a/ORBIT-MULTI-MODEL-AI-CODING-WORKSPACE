@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-container-lowest": "#ffffff",
+          "surface-container-high": "#ece6f3",
+          "on-surface": "#1c1a24",
+          "primary": "#5726d2",
+          "error-container": "#ffdad6",
+          "error": "#ba1a1a",
+          "on-tertiary-fixed-variant": "#723600",
+          "outline": "#7a7487",
+          "on-secondary-container": "#fefcff",
+          "secondary-container": "#256eec",
+          "secondary-fixed": "#d9e2ff",
+          "on-secondary-fixed": "#001945",
+          "inverse-primary": "#ccbdff",
+          "on-primary-fixed-variant": "#4d13c8",
+          "on-error-container": "#93000a",
+          "on-error": "#ffffff",
+          "tertiary-container": "#a55100",
+          "on-primary": "#ffffff",
+          "on-surface-variant": "#494455",
+          "secondary": "#0055c7",
+          "on-secondary": "#ffffff",
+          "on-tertiary-container": "#ffe3d3",
+          "primary-fixed": "#e7deff",
+          "surface-tint": "#663ae0",
+          "secondary-fixed-dim": "#b0c6ff",
+          "primary-fixed-dim": "#ccbdff",
+          "on-secondary-fixed-variant": "#00419c",
+          "on-primary-container": "#ede5ff",
+          "tertiary-fixed-dim": "#ffb787",
+          "inverse-surface": "#322f39",
+          "tertiary": "#813e00",
+          "on-primary-fixed": "#1f0060",
+          "surface-container": "#f2ebf9",
+          "surface-bright": "#fdf7ff",
+          "surface": "#fdf7ff",
+          "surface-variant": "#e6e0ee",
+          "background": "#fdf7ff",
+          "surface-dim": "#ded8e5",
+          "tertiary-fixed": "#ffdcc7",
+          "surface-container-highest": "#e6e0ee",
+          "primary-container": "#7047eb",
+          "surface-container-low": "#f8f1ff",
+          "on-background": "#1c1a24",
+          "inverse-on-surface": "#f5eefc",
+          "outline-variant": "#cac3d8",
+          "on-tertiary": "#ffffff",
+          "on-tertiary-fixed": "#311300"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-xl": "24px",
+          "space-md": "12px",
+          "margin": "16px",
+          "space-sm": "8px",
+          "gutter": "12px",
+          "space-xs": "4px",
+          "space-lg": "16px"
+        },
+        "fontFamily": {
+          "body-sm": [
+            "Inter"
+          ],
+          "headline-md": [
+            "Geist"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Geist"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Geist"
+          ],
+          "label-md": [
+            "JetBrains Mono"
+          ],
+          "headline-lg": [
+            "Geist"
+          ],
+          "label-sm": [
+            "JetBrains Mono"
+          ]
+        },
+        "fontSize": {
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "18px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-xl": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-sm": [
+            "10px",
+            {
+              "lineHeight": "14px",
+              "fontWeight": "500"
+            }
+          ]
+        }
+      },
+    },
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-[220px] bg-surface-container-low z-50 flex flex-col py-space-xl px-space-md"><div class="flex items-center gap-space-sm mb-space-xl px-space-xs"><img alt="ORBIT Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsP2YqWaNMaQ-TEZ5sybf5AcjDHT5CRACQEyFMfgfMOvD-Jwdulg8p8YAl6qJ8EBEAEDezwgjpkxUpGbFD5Pd7-HMnFQx2R7EdPrxbOCCEQQMYBBBKaBmTGtd2Who9aqCCFG0fmkS_3ovF3IuODfBEbUMio68r8tT_wGIqrmcF3SY2Zfy-fnYxFIdZeJBwRUjKgAe-yCzdddda0ckiY_O0BCHgPn4BR9H_yVn4wqihm8OcwP8y4mLrPw"/><span class="font-headline-md text-on-surface">ORBIT</span></div><div class="mb-space-lg"><button class="w-full flex items-center justify-center gap-space-sm bg-primary text-on-primary py-space-sm px-space-md rounded-xl font-headline-sm hover:bg-surface-tint hover:text-on-primary transition-colors"><span class="material-symbols-outlined text-[18px]">add</span>New Task</button></div><nav class="flex-1 flex flex-col gap-space-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm rounded-xl"><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span>Dashboard</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="ai-workspace" href="#"><span class="material-symbols-outlined text-[20px]">smart_toy</span>AI Workspace</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="agent-workspace" href="#"><span class="material-symbols-outlined text-[20px]">psychology</span>Agent Workspace</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="projects" href="#"><span class="material-symbols-outlined text-[20px]">folder</span>Projects</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="code-editor" href="#"><span class="material-symbols-outlined text-[20px]">code</span>Code Editor</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="terminal" href="#"><span class="material-symbols-outlined text-[20px]">terminal</span>Terminal</a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-headline-sm rounded-xl" data-path="model-hub" href="#"><span class="material-symbols-outlined text-[20px]">hub</span>Model Hub</a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span>Settings</a></nav><div class="mt-auto pt-space-md border-t border-surface-variant/40 flex items-center gap-space-sm px-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-green-500"></span><span class="text-body-sm text-on-surface-variant font-label-md">Connected to Cluster</span></div></aside><div class="pl-[220px]"><header class="fixed top-0 left-[220px] right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-lg"><span class="font-headline-md text-on-surface">Multi-Model Coding Workspace</span><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl border border-surface-variant/40"><span class="text-body-sm text-on-surface-variant">Project:</span><select class="bg-transparent text-on-surface font-headline-sm focus:outline-none cursor-pointer"><option>orbit-core-v2</option><option>neural-router</option></select></div><div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl border border-surface-variant/40"><span class="text-body-sm text-on-surface-variant">Model:</span><select class="bg-transparent text-on-surface font-headline-sm focus:outline-none cursor-pointer"><option>Claude 3.5 Sonnet</option><option>GPT-4o</option><option>DeepSeek R1</option></select></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-on-surface-variant text-[18px]">search</span><input class="bg-surface-container-low text-on-surface pl-10 pr-space-md py-space-xs rounded-xl text-body-md border border-surface-variant/40 focus:outline-none focus:border-primary w-64" placeholder="Type a command or search..." type="text"/></div><button class="p-space-xs text-on-surface-variant hover:text-on-surface rounded-full hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full p-space-xl gap-space-xl">
+<!-- Top Banner / Header Segment -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-space-md bg-surface-container-low p-space-xl rounded-xl">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-primary bg-primary-fixed px-space-sm py-space-xs rounded uppercase">Hub v4.2</span>
+<span class="text-body-sm text-on-surface-variant font-label-md">/ Neural Core Gateway</span>
+</div>
+<h1 class="font-headline-xl text-on-surface">Model Hub &amp; Gateway</h1>
+<p class="font-body-md text-on-surface-variant max-w-2xl">
+        Manage and synchronize multi-provider large language models, local weights, enterprise API endpoints, and global telemetry quotas across your active cluster.
+      </p>
+</div>
+<div class="flex items-center gap-space-md">
+<button class="flex items-center gap-space-sm bg-surface-container-high text-on-surface py-space-sm px-space-md rounded-xl font-headline-sm hover:bg-surface-variant transition-colors" onclick="openSyncModal()">
+<span class="material-symbols-outlined text-[18px]">sync</span>Sync Providers
+      </button>
+<button class="flex items-center gap-space-sm bg-primary text-on-primary py-space-sm px-space-md rounded-xl font-headline-sm hover:bg-surface-tint transition-colors" onclick="openAddModelModal()">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>Register Custom Model
+      </button>
+</div>
+</div>
+<!-- Telemetry Quotas & Usage Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-lg">
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-md text-on-surface-variant">Total Tokens Consumed</span>
+<span class="material-symbols-outlined text-primary text-[20px]">data_usage</span>
+</div>
+<div>
+<div class="font-headline-lg text-on-surface">1,482,904</div>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<span class="text-green-600 font-headline-sm text-body-sm">↑ 12.4%</span>
+<span class="text-body-sm text-on-surface-variant">vs last hour</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary h-full w-[78%] rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-md text-on-surface-variant">Active Cluster Latency</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">bolt</span>
+</div>
+<div>
+<div class="font-headline-lg text-on-surface">142 ms</div>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<span class="text-green-600 font-headline-sm text-body-sm">Optimal</span>
+<span class="text-body-sm text-on-surface-variant">global average</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-secondary h-full w-[45%] rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-md text-on-surface-variant">Active Endpoints</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">hub</span>
+</div>
+<div>
+<div class="font-headline-lg text-on-surface">8 / 10</div>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<span class="text-primary font-headline-sm text-body-sm">2 Standby</span>
+<span class="text-body-sm text-on-surface-variant">ready to spin up</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-tertiary h-full w-[80%] rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-md text-on-surface-variant">Monthly API Quota</span>
+<span class="material-symbols-outlined text-primary text-[20px]">payments</span>
+</div>
+<div>
+<div class="font-headline-lg text-on-surface">$342.50</div>
+<div class="flex items-center gap-space-xs mt-space-xs">
+<span class="text-on-surface-variant font-body-sm">of $500.00 limit</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary h-full w-[68%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Provider Cards Section -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg text-on-surface">Connected Providers</h2>
+<div class="flex items-center gap-space-sm">
+<button class="text-body-sm font-label-md text-primary bg-primary-fixed px-space-md py-space-xs rounded-xl">All (4)</button>
+<button class="text-body-sm font-label-md text-on-surface-variant hover:text-on-surface px-space-md py-space-xs rounded-xl transition-colors">Cloud APIs (3)</button>
+<button class="text-body-sm font-label-md text-on-surface-variant hover:text-on-surface px-space-md py-space-xs rounded-xl transition-colors">Local Runtimes (1)</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<!-- Anthropic Card -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center font-headline-md text-primary">A</div>
+<div>
+<h3 class="font-headline-md text-on-surface">Anthropic</h3>
+<span class="text-body-sm text-on-surface-variant font-label-md">Claude 3.5 Sonnet</span>
+</div>
+</div>
+<span class="flex items-center gap-space-xs bg-green-500/10 text-green-700 px-space-sm py-space-xs rounded-full text-body-sm font-label-md">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>Live
+            </span>
+</div>
+<p class="font-body-sm text-on-surface-variant">Primary reasoning engine optimized for complex multi-file architectural coding tasks.</p>
+</div>
+<div class="mt-space-xl pt-space-md flex items-center justify-between border-t border-surface-variant/20">
+<span class="font-label-md text-body-sm text-on-surface-variant">Rate: 50 req/s</span>
+<button class="text-primary font-headline-sm text-body-sm hover:underline flex items-center gap-space-xs" onclick="configureProvider('Anthropic')">
+            Configure <span class="material-symbols-outlined text-[16px]">settings</span>
+</button>
+</div>
+</div>
+<!-- OpenAI Card -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center font-headline-md text-secondary">O</div>
+<div>
+<h3 class="font-headline-md text-on-surface">OpenAI</h3>
+<span class="text-body-sm text-on-surface-variant font-label-md">GPT-4o Enterprise</span>
+</div>
+</div>
+<span class="flex items-center gap-space-xs bg-green-500/10 text-green-700 px-space-sm py-space-xs rounded-full text-body-sm font-label-md">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>Live
+            </span>
+</div>
+<p class="font-body-sm text-on-surface-variant">High-throughput multi-modal model handling rapid inline completions and agents.</p>
+</div>
+<div class="mt-space-xl pt-space-md flex items-center justify-between border-t border-surface-variant/20">
+<span class="font-label-md text-body-sm text-on-surface-variant">Rate: 100 req/s</span>
+<button class="text-primary font-headline-sm text-body-sm hover:underline flex items-center gap-space-xs" onclick="configureProvider('OpenAI')">
+            Configure <span class="material-symbols-outlined text-[16px]">settings</span>
+</button>
+</div>
+</div>
+<!-- Local Llama Card -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center font-headline-md text-tertiary">L</div>
+<div>
+<h3 class="font-headline-md text-on-surface">Local Llama</h3>
+<span class="text-body-sm text-on-surface-variant font-label-md">Llama-3-70B-Instruct</span>
+</div>
+</div>
+<span class="flex items-center gap-space-xs bg-green-500/10 text-green-700 px-space-sm py-space-xs rounded-full text-body-sm font-label-md">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>Local GPU
+            </span>
+</div>
+<p class="font-body-sm text-on-surface-variant">Running locally on dual NVIDIA RTX 4090 cluster with zero data leakage.</p>
+</div>
+<div class="mt-space-xl pt-space-md flex items-center justify-between border-t border-surface-variant/20">
+<span class="font-label-md text-body-sm text-on-surface-variant">VRAM: 42GB / 48GB</span>
+<button class="text-primary font-headline-sm text-body-sm hover:underline flex items-center gap-space-xs" onclick="configureProvider('Local Llama')">
+            Configure <span class="material-symbols-outlined text-[16px]">settings</span>
+</button>
+</div>
+</div>
+<!-- Mistral Card -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center font-headline-md text-error">M</div>
+<div>
+<h3 class="font-headline-md text-on-surface">Mistral AI</h3>
+<span class="text-body-sm text-on-surface-variant font-label-md">Mistral Large 2</span>
+</div>
+</div>
+<span class="flex items-center gap-space-xs bg-amber-500/10 text-amber-700 px-space-sm py-space-xs rounded-full text-body-sm font-label-md">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>Standby
+            </span>
+</div>
+<p class="font-body-sm text-on-surface-variant">Multilingual reasoning model configured for secondary code review passes.</p>
+</div>
+<div class="mt-space-xl pt-space-md flex items-center justify-between border-t border-surface-variant/20">
+<span class="font-label-md text-body-sm text-on-surface-variant">Rate: 30 req/s</span>
+<button class="text-primary font-headline-sm text-body-sm hover:underline flex items-center gap-space-xs" onclick="configureProvider('Mistral')">
+            Configure <span class="material-symbols-outlined text-[16px]">settings</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- API Configuration Form & Live Connection Tester Split View -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<!-- Configuration Form (2 Cols) -->
+<div class="lg:col-span-2 bg-surface-container-low p-space-xl rounded-xl flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-lg text-on-surface">API &amp; Gateway Configuration</h2>
+<p class="font-body-sm text-on-surface-variant">Update secure tokens, fallback routing rules, and temperature defaults.</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-green-600 text-[18px]">lock</span>
+<span class="text-body-sm font-label-md text-green-600">AES-256 Encrypted</span>
+</div>
+</div>
+<form class="flex flex-col gap-space-md" id="configForm" onsubmit="event.preventDefault(); triggerTestConnection();">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-headline-sm text-on-surface text-body-sm">Active Provider Target</label>
+<select class="bg-surface-container-high text-on-surface px-space-md py-space-sm rounded-xl font-body-md focus:outline-none focus:ring-1 focus:ring-primary" id="configProviderSelect">
+<option>Anthropic (Claude 3.5 Sonnet)</option>
+<option>OpenAI (GPT-4o)</option>
+<option>Local Llama (Llama-3-70B)</option>
+<option>Mistral AI (Large 2)</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-headline-sm text-on-surface text-body-sm">API Gateway Endpoint URL</label>
+<input class="bg-surface-container-high text-on-surface px-space-md py-space-sm rounded-xl font-label-md focus:outline-none focus:ring-1 focus:ring-primary" type="text" value="https://api.anthropic.com/v1/messages"/>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-headline-sm text-on-surface text-body-sm">Secure Authentication Token / API Key</label>
+<button class="text-body-sm text-primary font-headline-sm hover:underline" onclick="toggleTokenVisibility()" type="button">Reveal Token</button>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-space-md text-on-surface-variant text-[18px]">key</span>
+<input class="w-full bg-surface-container-high text-on-surface pl-10 pr-space-md py-space-sm rounded-xl font-label-md focus:outline-none focus:ring-1 focus:ring-primary" id="tokenInput" type="password" value="sk-ant-api03-orbit-secure-token-x984210f"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-headline-sm text-on-surface text-body-sm">Max Context Window</label>
+<select class="bg-surface-container-high text-on-surface px-space-md py-space-sm rounded-xl font-body-md focus:outline-none">
+<option>200,000 tokens</option>
+<option>128,000 tokens</option>
+<option>64,000 tokens</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-headline-sm text-on-surface text-body-sm">Default Temperature</label>
+<input class="bg-surface-container-high text-on-surface px-space-md py-space-sm rounded-xl font-label-md focus:outline-none" max="1" min="0" step="0.1" type="number" value="0.2"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-headline-sm text-on-surface text-body-sm">Request Timeout (sec)</label>
+<input class="bg-surface-container-high text-on-surface px-space-md py-space-sm rounded-xl font-label-md focus:outline-none" type="number" value="30"/>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md">
+<div class="flex items-center gap-space-sm">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary" id="autoFailover" type="checkbox"/>
+<label class="text-body-sm text-on-surface" for="autoFailover">Enable Automatic Fallback Routing on Rate Limit</label>
+</div>
+<div class="flex items-center gap-space-md">
+<button class="text-body-sm font-headline-sm text-on-surface-variant hover:text-on-surface" onclick="resetConfigForm()" type="button">Reset Changes</button>
+<button class="bg-primary text-on-primary px-space-xl py-space-sm rounded-xl font-headline-sm hover:bg-surface-tint transition-colors" type="submit">Save Configuration</button>
+</div>
+</div>
+</form>
+</div>
+<!-- Live Connection Tester (1 Col) -->
+<div class="bg-surface-container-low p-space-xl rounded-xl flex flex-col justify-between">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg text-on-surface">Connection Tester</h2>
+<span class="flex items-center gap-space-xs bg-green-500/10 text-green-700 px-space-sm py-space-xs rounded-full text-body-sm font-label-md" id="connectionBadge">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>Operational
+          </span>
+</div>
+<p class="font-body-sm text-on-surface-variant">Perform a live ping handshake with the selected model endpoint to verify tokens and latency.</p>
+<div class="bg-surface-container-high p-space-md rounded-xl font-label-md text-body-sm text-on-surface flex flex-col gap-space-xs h-40 overflow-y-auto" id="terminalLog">
+<div class="text-on-surface-variant">&gt; System initialized...</div>
+<div class="text-on-surface-variant">&gt; Ready for handshake test.</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-md pt-space-lg">
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant">Last ping latency:</span>
+<span class="font-label-md text-on-surface" id="pingResult">42ms (Stable)</span>
+</div>
+<button class="w-full flex items-center justify-center gap-space-sm bg-secondary text-on-secondary py-space-md px-space-md rounded-xl font-headline-sm hover:bg-secondary/90 transition-colors" onclick="triggerTestConnection()">
+<span class="material-symbols-outlined text-[18px]">bolt</span>Test Live Connection
+        </button>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Logic -->
+<script>
+    function toggleTokenVisibility() {
+      const input = document.getElementById('tokenInput');
+      if (input.type === 'password') {
+        input.type = 'text';
+      } else {
+        input.type = 'password';
+      }
+    }
+
+    function triggerTestConnection() {
+      const log = document.getElementById('terminalLog');
+      const badge = document.getElementById('connectionBadge');
+      const pingResult = document.getElementById('pingResult');
+      
+      log.innerHTML += '<div class="text-primary">&gt; Initiating TLS handshake...</div>';
+      log.scrollTop = log.scrollHeight;
+
+      badge.className = "flex items-center gap-space-xs bg-amber-500/10 text-amber-700 px-space-sm py-space-xs rounded-full text-body-sm font-label-md";
+      badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>Testing...';
+
+      setTimeout(() => {
+        log.innerHTML += '<div class="text-green-600">&gt; Connection established successfully. 200 OK.</div>';
+        log.scrollTop = log.scrollHeight;
+
+        badge.className = "flex items-center gap-space-xs bg-green-500/10 text-green-700 px-space-sm py-space-xs rounded-full text-body-sm font-label-md";
+        badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-green-500"></span>Operational';
+        pingResult.innerText = Math.floor(Math.random() * 30 + 30) + 'ms (Optimal)';
+      }, 800);
+    }
+
+    function configureProvider(name) {
+      document.getElementById('configProviderSelect').value = name + ' (Claude 3.5 Sonnet)' || name;
+      window.scrollTo({ top: 400, behavior: 'smooth' });
+    }
+
+    function openSyncModal() {
+      alert('Syncing all provider weight registries and API manifests...');
+    }
+
+    function openAddModelModal() {
+      alert('Opening custom model registration wizard...');
+    }
+
+    function resetConfigForm() {
+      document.getElementById('configForm').reset();
+    }
+  </script>
+</div></main></div></body></html>

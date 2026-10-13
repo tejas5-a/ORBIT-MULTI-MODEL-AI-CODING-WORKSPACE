@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-density="comfortable">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ORBIT is a local AI coding workspace shell. This build does not call models, read the disk, or run a terminal.">
+  <title>ORBIT — Multiple AI Brains. One Coding Universe.</title>
+  <script>
+    (function () {
+      try {
+        var raw = localStorage.getItem('orbit.shell.v1');
+        var theme = 'light';
+        if (raw) {
+          var data = JSON.parse(raw);
+          theme = data && data.preferences && data.preferences.theme || 'light';
+        }
+        if (theme === 'system') {
+          theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+      } catch (err) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/stitch.css">
+  <link rel="stylesheet" href="vendor/codemirror/codemirror.min.css">
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+  <a class="skip" href="#view">Skip to content</a>
+  <aside class="fixed left-0 top-0 h-full w-[220px] bg-surface-container-low z-50 flex flex-col py-space-xl px-space-md" aria-label="Primary">
+    <div class="flex items-center gap-space-sm mb-space-xl px-space-xs">
+      <img alt="ORBIT" class="h-8 w-auto object-contain" src="assets/mark.svg">
+      <span class="font-headline-md text-on-surface">ORBIT</span>
+    </div>
+    <div class="mb-space-lg">
+      <button type="button" id="new-task" class="w-full flex items-center justify-center gap-space-sm bg-primary text-on-primary py-space-sm px-space-md rounded-xl font-headline-sm hover:bg-surface-tint transition-colors">
+        <span class="material-symbols-outlined text-[18px]">add</span>
+        New Task
+      </button>
+    </div>
+    <nav id="nav" class="flex-1 flex flex-col gap-space-xs overflow-y-auto" aria-label="Screens">
+      <a class="nav-link flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="dashboard" href="#/dashboard"><span class="material-symbols-outlined text-[20px]">dashboard</span>Dashboard</a>
+      <a class="nav-link flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="ai-workspace" href="#/ai-workspace"><span class="material-symbols-outlined text-[20px]">smart_toy</span>AI Workspace</a>
+      <a class="nav-link flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="agent-workspace" href="#/agent-workspace"><span class="material-symbols-outlined text-[20px]">psychology</span>Agent Workspace</a>
+      <a class="nav-link flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="projects" href="#/projects"><span class="material-symbols-outlined text-[20px]">folder</span>Projects</a>
+      <a class="nav-link flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="code-editor" href="#/code-editor"><span class="material-symbols-outlined text-[20px]">code</span>Code Editor</a>
+      <a class="nav-link flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="terminal" href="#/terminal"><span class="material-symbols-outlined text-[20px]">terminal</span>Terminal</a>
+      <a class="nav-link flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="model-hub" href="#/model-hub"><span class="material-symbols-outlined text-[20px]">hub</span>Model Hub</a>
+      <a class="nav-link flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-xl transition-colors" data-path="settings" href="#/settings"><span class="material-symbols-outlined text-[20px]">settings</span>Settings</a>
+    </nav>
+    <div class="mt-auto pt-space-md border-t border-surface-variant/40 flex items-center gap-space-sm px-space-xs">
+      <span class="w-2.5 h-2.5 rounded-full bg-amber-500" id="cluster-dot"></span>
+      <span class="text-body-sm text-on-surface-variant font-label-md" id="cluster-label">Cluster not connected</span>
+    </div>
+  </aside>
+
+  <div class="pl-[220px]">
+    <header class="fixed top-0 left-[220px] right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl">
+      <div class="flex items-center gap-space-lg">
+        <span class="font-headline-md text-on-surface">Multi-Model Coding Workspace</span>
+        <label class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl border border-surface-variant/40">
+          <span class="text-body-sm text-on-surface-variant">Project:</span>
+          <select id="project-select" class="bg-transparent text-on-surface font-headline-sm focus:outline-none cursor-pointer" title="Catalog selection. Choosing an entry does not open a folder."></select>
+        </label>
+        <label class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-xs rounded-xl border border-surface-variant/40">
+          <span class="text-body-sm text-on-surface-variant">Model:</span>
+          <select id="model-select" class="bg-transparent text-on-surface font-headline-sm focus:outline-none cursor-pointer" title="Header selection. OpenRouter can send a request after a key and model are chosen. Other providers are not connected."></select>
+        </label>
+      </div>
+      <div class="flex items-center gap-space-md">
+        <div class="relative flex items-center" id="search-wrap">
+          <span class="material-symbols-outlined absolute left-space-md text-on-surface-variant text-[18px]">search</span>
+          <input id="command-search" class="bg-surface-container-low text-on-surface pl-10 pr-space-md py-space-xs rounded-xl text-body-md border border-surface-variant/40 focus:outline-none focus:border-primary w-64" placeholder="Type a command or search..." type="search" autocomplete="off">
+          <div id="search-results" class="drop-panel hidden" role="listbox"></div>
+        </div>
+        <button type="button" id="notify-btn" class="p-space-xs text-on-surface-variant hover:text-on-surface rounded-full hover:bg-surface-container-high transition-colors" aria-label="Local activity" aria-expanded="false">
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+        <button type="button" id="account-btn" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center" aria-label="Account" aria-expanded="false">
+          <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+        </button>
+      </div>
+    </header>
+    <main id="view" class="relative pt-16 bg-surface min-h-screen" tabindex="-1"></main>
+  </div>
+  <div id="modal-root"></div>
+  <div id="toast-root" aria-live="polite"></div>
+  <div id="notify-panel" class="drop-panel hidden" style="position:fixed;top:68px;right:72px;z-index:70"></div>
+  <div id="account-panel" class="drop-panel hidden" style="position:fixed;top:68px;right:24px;z-index:70;width:260px"></div>
+
+  <script src="services/errors.js"></script>
+  <script src="services/credentials.js"></script>
+  <script src="services/openrouter.js"></script>
+  <script src="services/compatibility.js"></script>
+  <script src="services/runtime.js"></script>
+  <script src="services/providers.js"></script>
+  <script src="services/path-guard.js"></script>
+  <script src="services/filesystem-adapter.js"></script>
+  <script src="services/orchestration.js"></script>
+  <script src="services/shell-store.js"></script>
+  <script src="vendor/codemirror/codemirror.min.js"></script>
+  <script src="vendor/codemirror/mode/rust/rust.min.js"></script>
+  <script src="vendor/codemirror/mode/clike/clike.min.js"></script>
+  <script src="vendor/codemirror/mode/javascript/javascript.min.js"></script>
+  <script src="vendor/codemirror/mode/python/python.min.js"></script>
+  <script src="vendor/codemirror/mode/markdown/markdown.min.js"></script>
+  <script src="vendor/codemirror/mode/xml/xml.min.js"></script>
+  <script src="vendor/codemirror/mode/css/css.min.js"></script>
+  <script src="vendor/codemirror/addon/search/searchcursor.min.js"></script>
+  <script src="scripts/screens.js"></script>
+  <script src="scripts/openrouter-ui.js"></script>
+  <script src="scripts/editor-session.js"></script>
+  <script src="scripts/stitch.js"></script>
+</body>
+</html>
